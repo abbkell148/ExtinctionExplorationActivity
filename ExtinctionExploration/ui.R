@@ -13,21 +13,21 @@ library(shiny)
 shinyUI(fluidPage(
   
   # Application title
-  titlePanel("Diversity and Extinction Through Time"),
+  titlePanel("Diversity and Extinction Through Time\n(This is dummmy data!"),
   
   # Sidebar with a slider input for number of bins 
   sidebarLayout(
     sidebarPanel(
-       sliderInput("bins",
-                   "Number of bins:",
-                   min = 1,
-                   max = 50,
-                   value = 30)
+      checkboxGroupInput("group",
+                   "Taxa to plot", 
+                   choices = c("Animalia","Plantae","Corals","Echinodermata","Brachiopoda"),
+                   selected = c("Animalia"))
     ),
     
     # Show a plot of the generated distribution
-    mainPanel(
-       plotOutput("distPlot")
-    )
+    mainPanel(tabsetPanel(
+       tabPanel("Standardized", plotOutput("distPlot")),
+       tabPanel("Not Standardized", plotOutput("distPlot2"))
+    ))
   )
 ))
