@@ -54,5 +54,20 @@ shinyServer(function(input, output, session) {
         +theme(legend.position="bottom")+ labs(color="")
         )
     })
-  
+    
+    output$selectivity_plot <- renderPlot({
+      #modify the dataframe according to selected groups
+      selectivity_output <- selectivityDF[selectivityDF$comparison == input$hypothesis,] 
+      
+      #make the plot
+      (ggplot(selectivity_output, aes(x = max_ma, y = relN, color = group))
+        +geom_vline(xintercept = c(252.2), color = "gray70", size = 2)
+        +geom_point()+geom_line()
+        +scale_x_reverse()
+        +ylab(NULL)
+        +xlab(NULL)
+        +ggtitle(input$hypothesis) 
+      )
+    }) 
+
 })

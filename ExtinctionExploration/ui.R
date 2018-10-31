@@ -25,6 +25,14 @@ shinyUI(navbarPage("Diversity and Extinction",
           )
         )),
     
-    tabPanel("Part2")
-)
-)
+    tabPanel("Part2", 
+      fluidPage(titlePanel("Selectivity at the Permo-Triassic"),
+        sidebarLayout(
+          sidebarPanel(
+            selectInput("hypothesis", "Select a Hypothesis:", 
+                        choices = hypotheses, selected = "latitude")
+            ),
+          mainPanel(plotOutput("selectivity_plot"))
+          ))
+    )
+))
