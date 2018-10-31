@@ -9,25 +9,27 @@
 
 library(shiny)
 
+
+
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
   
   # Application title
-  titlePanel("Diversity and Extinction Through Time\n(This is dummmy data!"),
+  titlePanel("Diversity and Extinction Through Time"),
   
   # Sidebar with a slider input for number of bins 
   sidebarLayout(
     sidebarPanel(
       checkboxGroupInput("group",
                    "Taxa to plot", 
-                   choices = c("Animalia","Plantae","Corals","Echinodermata","Brachiopoda"),
-                   selected = c("Animalia"))
+                   choices = group_names,
+                   selected = c("animalia"))
     ),
     
     # Show a plot of the generated distribution
     mainPanel(tabsetPanel(
-       tabPanel("Standardized", plotOutput("distPlot")),
-       tabPanel("Not Standardized", plotOutput("distPlot2"))
+       tabPanel("Standardized Diversity", plotOutput("standard_diversity_plot")),
+       tabPanel("Raw Diversity", plotOutput("raw_diversity_plot"))
     ))
   )
 ))
