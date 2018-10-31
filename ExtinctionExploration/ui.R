@@ -20,12 +20,12 @@ shinyUI(fluidPage(
   # Sidebar with a slider input for number of bins 
   sidebarLayout(
     sidebarPanel(
-      checkboxGroupInput("group",
-                   "Taxa to plot", 
+      checkboxGroupInput("group", "Taxa to plot", 
                    choices = group_names,
-                   selected = c("animalia"))
-    ),
-    
+                   selected = c("animalia")),
+                   
+      checkboxInput('select','All/None')
+),
     # Show a plot of the generated distribution
     mainPanel(tabsetPanel(
        tabPanel("Standardized Diversity", plotOutput("standard_diversity_plot")),
