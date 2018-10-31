@@ -1,7 +1,7 @@
 library(shiny)
 
  #load the data
-setwd("/Users/abigailkelly/Desktop/Teaching\ Geoscience/THEGREATDYING/ExtinctionExplorationApp/ExtinctionExploration")
+#setwd("/Users/abigailkelly/Desktop/Teaching\ Geoscience/THEGREATDYING/ExtinctionExplorationApp/ExtinctionExploration")
 
  diversityDF <- read.csv("./data/diversity_data.csv")
  selectivityDF <- read.csv("./data/selectivity.csv")
