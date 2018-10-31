@@ -7,7 +7,7 @@
 #    http://shiny.rstudio.com/
 #
 
-library(shiny)
+#library(shiny)
 
 
 
@@ -21,8 +21,7 @@ shinyUI(fluidPage(
   sidebarLayout(
     sidebarPanel(
       checkboxGroupInput("group", "Taxa to plot", 
-                   choices = group_names,
-                   selected = c("animalia")),
+                   choices = group_names),
                    
       checkboxInput('select','All/None')
 ),

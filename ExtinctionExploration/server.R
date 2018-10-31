@@ -7,16 +7,9 @@
 #    http://shiny.rstudio.com/
 #
 
-library(shiny)
+#library(shiny)
 library(cowplot)
 
-#load the data
-directory <- getwd()
-diversitypath <- paste(directory, "/data/diversity_data.csv", sep="")
-diversityDF <- read.csv(diversitypath)
-
-#group names for checkbox labels
-group_names <- levels(diversityDF$group)
 
 # Define server logic ...
 shinyServer(function(input, output, session) {
