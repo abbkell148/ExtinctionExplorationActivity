@@ -9,7 +9,7 @@
 
 #library(shiny)
 library(cowplot)
-
+library(data.table)
 
 # Define server logic ...
 shinyServer(function(input, output, session) {
@@ -67,6 +67,23 @@ shinyServer(function(input, output, session) {
         +ylab("percent total genera\n(within group)")
         +xlab("Geologic Time (Ma)")
         +ggtitle(input$hypothesis) 
+      )
+    }) 
+    
+    output$design_plot <- renderPlot({
+      #read the data
+      #pbdb_data<-fread(input$pbdbURL,skip = 20 )
+      pbdb_data<-fread("https://paleobiodb.org/data1.2/occs/diversity.csv?datainfo&rowcount&base_name=mammalia&count=genera",skip = 20 )
+    
+      
+      #prep the data
+      pbdb_data$diversity <- pbdb_data$X_Ft + pbdb_data$X_bL + pbdb_data$X_FL + pbdb_data$X_bt
+      #make the plot
+      (ggplot(pbdb_data, aes(x = max_ma, y = diversity))
+        +geom_point()+geom_line()
+        +scale_x_reverse()
+        +ylab("total genera\n(within group)")
+        +xlab("Geologic Time (Ma)")
       )
     }) 
 

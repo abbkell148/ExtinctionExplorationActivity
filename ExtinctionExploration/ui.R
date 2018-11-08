@@ -24,7 +24,6 @@ shinyUI(navbarPage("Diversity and Extinction",
               ))
           )
         )),
-    
     tabPanel("Part2", 
       fluidPage(titlePanel("Selectivity at the Permo-Triassic"),
         sidebarLayout(
@@ -33,6 +32,14 @@ shinyUI(navbarPage("Diversity and Extinction",
                         choices = hypotheses, selected = "latitude")
             ),
           mainPanel(plotOutput("selectivity_plot"))
-          ))
-    )
+          ))),
+      tabPanel("Part3", 
+        fluidPage(titlePanel("Design your own PBDB adventure!"),
+          sidebarLayout(
+            sidebarPanel(
+              textInput("pbdbURL", "Copy and paste PBDB url here:", 
+                        placeholder = "e.g., https://paleobiodb.org/data1.2/occs/diversity.csv?datainfo&rowcount&base_name=mammalia&count=genera", width = '100%')
+            ),
+           mainPanel(plotOutput("design_plot"))
+        )))
 ))
