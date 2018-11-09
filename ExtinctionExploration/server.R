@@ -33,7 +33,7 @@ shinyServer(function(input, output, session) {
         +geom_vline(xintercept = c(444, 65, 201), color = "gray90", size = 1)
         +annotate("rect", xmax=376, xmin = 359, ymin=-Inf, ymax= Inf, fill ="gray90")
         +geom_point()+geom_line()
-        +ylab("Standardized Diversity \n(Percentange of Total Genera in Group")
+        +ylab("Standardized Diversity \n(Percentange of Total Genera in Group)")
         +xlab("Geologic Time (Ma)")
         
         +theme(legend.position="bottom", axis.text.x = element_text(size=10))+ labs(color="")

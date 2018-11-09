@@ -17,11 +17,15 @@ shinyUI(navbarPage("Diversity and Extinction",
             checkboxGroupInput("group", "Taxa to plot", choices = group_names),
             checkboxInput('select','All/None')
             ),
-          # Show a plot of the generated distribution
           mainPanel(tabsetPanel(
-              tabPanel("Standardized Diversity", plotOutput("standard_diversity_plot")),
-              tabPanel("Raw Diversity", plotOutput("raw_diversity_plot")),
-              tabPanel("Extinction and Origination", 
+              tabPanel("Standardized Diversity",
+                       tags$i('Gray vertical bars mark the "Big Five" Mass Extinctions: the end-Ordovician, the Late Devonian, the Permo-Triassic, the end-Triassic, and the Cretaceous-Paleogene.'),
+                       plotOutput("standard_diversity_plot")),
+              tabPanel("Raw Diversity",
+                       tags$i('Gray vertical bars mark the "Big Five" Mass Extinctions: the end-Ordovician, the Late Devonian, the Permo-Triassic, the end-Triassic, and the Cretaceous-Paleogene.'),
+                       plotOutput("raw_diversity_plot")),
+              tabPanel("Extinction and Origination",
+                       p('Gray vertical bars mark the "Big Five" Mass Extinctions: the end-Ordovician, the Late Devonian, the Permo-Triassic, the end-Triassic, and the Cretaceous-Paleogene.'),
                        plotOutput("ext_org_plot"),
                        p("Note that only one taxonomic group is plotted! If more than one group is selected, then only first the group will be plotted."))
               ))
