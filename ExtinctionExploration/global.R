@@ -1,4 +1,7 @@
 library(shiny)
+library(data.table)
+library(curl)
+library(cowplot)
 
  #load the data
 #setwd("/Users/abigailkelly/Desktop/Teaching\ Geoscience/THEGREATDYING/ExtinctionExplorationApp/ExtinctionExploration")

@@ -8,8 +8,8 @@
 #
 
 #library(shiny)
-library(cowplot)
-library(data.table)
+#library(cowplot)
+#library(data.table)
 
 # Define server logic ...
 shinyServer(function(input, output, session) {
@@ -72,8 +72,8 @@ shinyServer(function(input, output, session) {
     
     output$design_plot <- renderPlot({
       #read the data
-      pbdb_data<-fread(input$pbdbURL,skip = 20 )
-      #pbdb_data<-fread("https://paleobiodb.org/data1.2/occs/diversity.csv?datainfo&rowcount&base_name=mammalia&count=genera",skip = 20 )
+      #pbdb_data<-fread(input$pbdbURL,skip = 20 )
+      pbdb_data<-fread("https://paleobiodb.org/data1.2/occs/diversity.csv?datainfo&rowcount&base_name=mammalia&count=genera",skip = 20 )
     
       
       #prep the data
@@ -86,5 +86,7 @@ shinyServer(function(input, output, session) {
         +xlab("Geologic Time (Ma)")
       )
     }) 
+    
+    #output$design_table <- DT::renderDataTable({ fread(input$pbdbURL,skip = 20 ) })
 
 })

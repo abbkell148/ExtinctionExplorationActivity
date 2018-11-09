@@ -5,8 +5,8 @@ account: abbkell148
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 545754
-bundleId: 1675369
+bundleId: 1691853
 url: https://abbkell148.shinyapps.io/ExtinctionExplorationBETA/
-when: 1541020909.06336
+when: 1541773605.09785
 asMultiple: FALSE
 asStatic: FALSE

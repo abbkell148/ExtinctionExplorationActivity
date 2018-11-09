@@ -7,7 +7,7 @@
 #    http://shiny.rstudio.com/
 #
 
-# Define UI for application that draws a histogram
+# Define UI
 shinyUI(navbarPage("Diversity and Extinction", 
     tabPanel("Part1",
       fluidPage(titlePanel("Diversity and Extinction Through Time"),
@@ -24,6 +24,7 @@ shinyUI(navbarPage("Diversity and Extinction",
               ))
           )
         )),
+    
     tabPanel("Part2", 
       fluidPage(titlePanel("Selectivity at the Permo-Triassic"),
         sidebarLayout(
@@ -33,13 +34,18 @@ shinyUI(navbarPage("Diversity and Extinction",
             ),
           mainPanel(plotOutput("selectivity_plot"))
           ))),
+    
       tabPanel("Part3", 
         fluidPage(titlePanel("Design your own PBDB adventure!"),
-          sidebarLayout(
-            sidebarPanel(
+          verticalLayout(
+            h6("This is the link to PBDB:"),
+            a(href="https://paleobiodb.org/classic/displayDownloadGenerator", "PBDB"),
+            h6("and this is more text explaining this part (which unfortunately doesn't work..."),
+            wellPanel(
               textInput("pbdbURL", "Copy and paste PBDB url here:", 
                         placeholder = "e.g., https://paleobiodb.org/data1.2/occs/diversity.csv?datainfo&rowcount&base_name=mammalia&count=genera", width = '100%')
             ),
-           mainPanel(plotOutput("design_plot"))
+            plotOutput("design_plot")
+            #DT:: dataTableOutput("design_table")
         )))
 ))
