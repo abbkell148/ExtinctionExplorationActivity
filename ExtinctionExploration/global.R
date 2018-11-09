@@ -14,4 +14,11 @@ library(cowplot)
 
  hypotheses  <- levels(read.csv("./data/selectivity.csv")$comparison)
  
- #timescale <- unique(diversityDF[select = c(,"max_ma","min_ma", "period")])
+ timescale <- unique(diversityDF[ ,c("max_ma","min_ma", "period") ])
+ timescale1 <- aggregate(data=timescale, min_ma~ period, FUN=min)
+ timescale2 <- aggregate(data=timescale, max_ma~ period, FUN=max)
+ timescale <- merge(timescale1, timescale2)
+ timescale$mid_ma <- (timescale$min_ma + timescale$max_ma)/2
+ timescale <- timescale[order(timescale$min_ma),]
+ 
+ 

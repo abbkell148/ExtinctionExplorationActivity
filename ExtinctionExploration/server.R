@@ -24,34 +24,51 @@ shinyServer(function(input, output, session) {
     output$standard_diversity_plot <- renderPlot({
       #modify the dataframe according to selected groups
       diversity_output <- diversityDF[diversityDF$group %in% input$group,] 
+      yminv=0
+      yscale = max(diversity_output$relN, na.rm=T)/12
     
       #make the plot
-      (ggplot(diversity_output, aes(x = max_ma, y = relN, color = group))
+      (ggplot(diversity_output, aes(x = min_ma, y = relN, color = group))
         +geom_vline(xintercept = c(252), color = "gray70", size = 2)
         +geom_vline(xintercept = c(444, 65, 201), color = "gray90", size = 1)
         +annotate("rect", xmax=376, xmin = 359, ymin=-Inf, ymax= Inf, fill ="gray90")
         +geom_point()+geom_line()
-        +scale_x_reverse()
         +ylab("Standardized Diversity \n(Percentange of Total Genera in Group")
         +xlab("Geologic Time (Ma)")
-        +theme(legend.position="bottom") + labs(color="")
+        
+        +theme(legend.position="bottom", axis.text.x = element_text(size=10))+ labs(color="")
+        
+        +scale_x_reverse(breaks = round(rev(timescale$min_ma),1))
+        +annotate("rect", xmin=timescale$min_ma, xmax=timescale$max_ma, 
+                  ymin=(yminv - .5*yscale), ymax=(yminv - 1.5*yscale),
+                  fill="gray80",
+                  size=.25,colour="black",alpha=1) 
+        +annotate("text", x=timescale$mid_ma,y=(yminv - 1*yscale),label=timescale$period,size=4)
       )
     })
   
     output$raw_diversity_plot <- renderPlot({
       #modify the dataframe according to selected groups
       diversity_output <- diversityDF[diversityDF$group %in% input$group,] 
+      yminv=0
+      yscale = max(diversity_output$N, na.rm=T)/12
       
       #make the plot
-      (ggplot(diversity_output, aes(x = max_ma, y = N, color = group))
+      (ggplot(diversity_output, aes(x = min_ma, y = N, color = group))
         +geom_vline(xintercept = c(252), color = "gray70", size = 2)
         +geom_vline(xintercept = c(444, 65, 201), color = "gray90", size = 1)
         +annotate("rect", xmax=376, xmin = 359, ymin=-Inf, ymax= Inf, fill ="gray90")
         +geom_point()+geom_line()
-        +scale_x_reverse()
         +ylab("Diversity: Genera in Bin")
         +xlab("Geologic Time (Ma)")
-        +theme(legend.position="bottom")+ labs(color="")
+        +theme(legend.position="bottom", axis.text.x = element_text(size=10))+ labs(color="")
+        
+        +scale_x_reverse(breaks = round(rev(timescale$min_ma),1))
+        +annotate("rect", xmin=timescale$min_ma, xmax=timescale$max_ma, 
+                  ymin=(yminv - .5*yscale), ymax=(yminv - 1.5*yscale),
+                  fill="gray80",
+                  size=.25,colour="black",alpha=1) 
+        +annotate("text", x=timescale$mid_ma,y=(yminv - 1*yscale),label=timescale$period,size=4)
         )
     })
     
@@ -74,14 +91,21 @@ shinyServer(function(input, output, session) {
         +geom_segment(aes(x=560, y = -yscale/3, xend=560, yend=-3*yscale), color = "red", size =1, arrow = arrow(ends = "last"))
         +annotate(geom="text", x=560, y = 3.5*yscale, label = "Origination", color = "green")
         +annotate(geom="text", x=560, y = -3.5*yscale, label = "Extinction", color = "red")
-        +geom_line(aes(x = max_ma, y= -bL/(max_ma-min_ma)), color = "red")
-        +geom_line(aes(x = max_ma, y = Ft/(max_ma-min_ma)), color = "green")
-        +geom_point(aes(x = max_ma, y = (yminv - yscale), fill = (Ft-bL)), shape = 22, color = "white", size = 3, alpha = .8)
+        +geom_line(aes(x = min_ma, y= -bL/(max_ma-min_ma)), color = "red")
+        +geom_line(aes(x = min_ma, y = Ft/(max_ma-min_ma)), color = "green")
+        +geom_point(aes(x = min_ma, y = (yminv - yscale), fill = (Ft-bL)), shape = 22, color = "white", size = 3, alpha = .8)
         +scale_fill_gradient2(low = "red", high = "green", name = "Net change", na.value="white")
-        +scale_x_reverse()
         +ggtitle(title)
         +ylab("Extinction and Origination Rate (Genera/Ma)")
         +xlab("Geologic Time (Ma)")
+        
+        +theme(axis.text.x = element_text(size=10))
+        +scale_x_reverse(breaks = round(rev(timescale$min_ma),1))
+        +annotate("rect", xmin=timescale$min_ma, xmax=timescale$max_ma, 
+                  ymin=(yminv - 1.5*yscale), ymax=(yminv - 3.5*yscale),
+                  fill="gray80",
+                  size=.25,colour="black",alpha=1) 
+        +annotate("text", x=timescale$mid_ma,y=(yminv - 2.5*yscale),label=timescale$period,size=4)
       )
       
     })
@@ -103,8 +127,8 @@ shinyServer(function(input, output, session) {
     
     output$design_plot <- renderPlot({
       #read the data
-      #pbdb_data<-fread(input$pbdbURL,skip = 20 )
-      pbdb_data<-fread("https://paleobiodb.org/data1.2/occs/diversity.csv?datainfo&rowcount&base_name=mammalia&count=genera",skip = 20 )
+      pbdb_data<-fread(input$pbdbURL,skip = 20 )
+      #pbdb_data<-fread("https://paleobiodb.org/data1.2/occs/diversity.csv?datainfo&rowcount&base_name=mammalia&count=genera",skip = 20 )
     
       
       #prep the data
