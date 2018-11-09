@@ -32,7 +32,7 @@ shinyServer(function(input, output, session) {
         +annotate("rect", xmax=376, xmin = 359, ymin=-Inf, ymax= Inf, fill ="gray90")
         +geom_point()+geom_line()
         +scale_x_reverse()
-        +ylab("percent total genera\n(within group)")
+        +ylab("Standardized Diversity \n(Percentange of Total Genera in Group")
         +xlab("Geologic Time (Ma)")
         +theme(legend.position="bottom") + labs(color="")
       )
@@ -49,10 +49,41 @@ shinyServer(function(input, output, session) {
         +annotate("rect", xmax=376, xmin = 359, ymin=-Inf, ymax= Inf, fill ="gray90")
         +geom_point()+geom_line()
         +scale_x_reverse()
-        +ylab("total genera")
+        +ylab("Diversity: Genera in Bin")
         +xlab("Geologic Time (Ma)")
         +theme(legend.position="bottom")+ labs(color="")
         )
+    })
+    
+    output$ext_org_plot <- renderPlot({
+
+      diversity_output <- diversityDF[diversityDF$group %in% input$group[1],]
+      diversity_output <- diversity_output[diversity_output$max_ma > 1,]
+      title <- input$group[1]
+      yminv  <- -max(diversity_output$bL / (diversity_output$max_ma - diversity_output$min_ma), na.rm=T)
+      ymaxv  <-  max(diversity_output$Ft / (diversity_output$max_ma - diversity_output$min_ma), na.rm=T)
+      yscale <-  (abs(yminv) + ymaxv )/30
+      
+      (ggplot(diversity_output)
+        +geom_vline(xintercept = c(252), color = "gray70", size = 2)
+        +geom_vline(xintercept = c(444, 65, 201), color = "gray90", size = 1)
+        +annotate("rect", xmax=376, xmin = 359, ymin=-Inf, ymax= Inf, fill ="gray90")
+        +geom_hline(yintercept = c(0), color = "gray70", size = .2)
+        +annotate("rect", xmax=Inf, xmin = -Inf, ymin=yminv, ymax= -Inf, fill ="white")
+        +geom_segment(aes(x=560, y = yscale/3, xend=560, yend=3*yscale), color = "green", size =1, arrow = arrow(ends = "last"))
+        +geom_segment(aes(x=560, y = -yscale/3, xend=560, yend=-3*yscale), color = "red", size =1, arrow = arrow(ends = "last"))
+        +annotate(geom="text", x=560, y = 3.5*yscale, label = "Origination", color = "green")
+        +annotate(geom="text", x=560, y = -3.5*yscale, label = "Extinction", color = "red")
+        +geom_line(aes(x = max_ma, y= -bL/(max_ma-min_ma)), color = "red")
+        +geom_line(aes(x = max_ma, y = Ft/(max_ma-min_ma)), color = "green")
+        +geom_point(aes(x = max_ma, y = (yminv - yscale), fill = (Ft-bL)), shape = 22, color = "white", size = 3, alpha = .8)
+        +scale_fill_gradient2(low = "red", high = "green", name = "Net change", na.value="white")
+        +scale_x_reverse()
+        +ggtitle(title)
+        +ylab("Extinction and Origination Rate (Genera/Ma)")
+        +xlab("Geologic Time (Ma)")
+      )
+      
     })
     
     output$selectivity_plot <- renderPlot({

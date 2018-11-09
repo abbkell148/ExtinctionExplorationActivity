@@ -20,7 +20,10 @@ shinyUI(navbarPage("Diversity and Extinction",
           # Show a plot of the generated distribution
           mainPanel(tabsetPanel(
               tabPanel("Standardized Diversity", plotOutput("standard_diversity_plot")),
-              tabPanel("Raw Diversity", plotOutput("raw_diversity_plot"))
+              tabPanel("Raw Diversity", plotOutput("raw_diversity_plot")),
+              tabPanel("Extinction and Origination", 
+                       plotOutput("ext_org_plot"),
+                       p("Note that only one taxonomic group is plotted! If more than one group is selected, then only first the group will be plotted."))
               ))
           )
         )),
