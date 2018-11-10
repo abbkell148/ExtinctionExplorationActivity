@@ -113,15 +113,19 @@ shinyServer(function(input, output, session) {
     output$selectivity_plot <- renderPlot({
       #modify the dataframe according to selected groups
       selectivity_output <- selectivityDF[selectivityDF$comparison == input$hypothesis,] 
+      #selectivity_output <- selectivityDF[selectivityDF$comparison == "Terrestrial vs. Marine",]
       
+
       #make the plot
       (ggplot(selectivity_output, aes(x = max_ma, y = relN, color = group))
         +geom_vline(xintercept = c(252.2), color = "gray70", size = 2)
         +geom_point()+geom_line()
-        +scale_x_reverse()
-        +ylab("percent total genera\n(within group)")
+        +ylab("Diversity (Standardized)")
         +xlab("Geologic Time (Ma)")
-        +ggtitle(input$hypothesis) 
+       # +ggtitle(input$hypothesis) 
+        
+        +theme(axis.text.x = element_text(size=10), legend.title=element_blank())
+        +scale_x_reverse(breaks = (round(rev(unique(selectivity_output$max_ma)),1)))        
       )
     }) 
     

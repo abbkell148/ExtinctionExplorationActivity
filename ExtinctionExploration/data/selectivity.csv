@@ -1,49 +1,49 @@
-"interval_no","interval_name","max_ma","min_ma","X_Ft","X_bL","X_FL","X_bt","sampled_in_bin","implied_in_bin","n_occs","group","comparison","N","relN"
-138,"Ladinian",242,237,0,25,9,0,34,1,433,"low_buffer","carb_buffer",34,0.0723404255319149
-139,"Anisian",247.2,242,16,3,27,9,53,1,714,"low_buffer","carb_buffer",55,0.117021276595745
-652,"Olenekian",251.2,247.2,3,2,3,9,15,2,154,"low_buffer","carb_buffer",17,0.0361702127659574
-653,"Induan",252.17,251.2,4,9,4,7,22,1,151,"low_buffer","carb_buffer",24,0.051063829787234
-715,"Changhsingian",254.17,252.17,2,100,21,14,135,0,1925,"low_buffer","carb_buffer",137,0.291489361702128
-716,"Wuchiapingian",259.9,254.17,114,0,89,0,203,1,3237,"low_buffer","carb_buffer",203,0.431914893617021
-138,"Ladinian",242,237,0,217,115,0,332,5,1907,"mid_buffer","carb_buffer",332,0.132007952286282
-139,"Anisian",247.2,242,100,78,203,117,484,6,7237,"mid_buffer","carb_buffer",498,0.198011928429423
-652,"Olenekian",251.2,247.2,61,71,215,134,426,2,7404,"mid_buffer","carb_buffer",481,0.191252485089463
-653,"Induan",252.17,251.2,76,49,32,129,224,3,4989,"mid_buffer","carb_buffer",286,0.113717693836978
-715,"Changhsingian",254.17,252.17,39,151,133,139,429,4,6120,"mid_buffer","carb_buffer",462,0.183697813121272
-716,"Wuchiapingian",259.9,254.17,290,0,166,0,456,3,4406,"mid_buffer","carb_buffer",456,0.181312127236581
-138,"Ladinian",242,237,0,19,16,0,35,2,229,"most_buffer","carb_buffer",35,0.180412371134021
-139,"Anisian",247.2,242,4,5,15,15,39,3,315,"most_buffer","carb_buffer",39,0.201030927835052
-652,"Olenekian",251.2,247.2,6,2,12,14,30,1,212,"most_buffer","carb_buffer",34,0.175257731958763
-653,"Induan",252.17,251.2,4,5,1,12,18,2,370,"most_buffer","carb_buffer",22,0.11340206185567
-715,"Changhsingian",254.17,252.17,3,5,7,14,25,2,176,"most_buffer","carb_buffer",29,0.149484536082474
-716,"Wuchiapingian",259.9,254.17,19,0,16,0,35,1,148,"most_buffer","carb_buffer",35,0.180412371134021
-138,"Ladinian",242,237,0,23,88,0,111,8,257,"terrestrial","landsea",111,0.0928870292887029
-139,"Anisian",247.2,242,15,24,223,8,267,11,833,"terrestrial","landsea",270,0.225941422594142
-652,"Olenekian",251.2,247.2,16,27,90,16,136,4,752,"terrestrial","landsea",149,0.124686192468619
-653,"Induan",252.17,251.2,16,2,40,27,66,4,196,"terrestrial","landsea",85,0.0711297071129707
-715,"Changhsingian",254.17,252.17,4,35,171,25,217,5,465,"terrestrial","landsea",235,0.196652719665272
-716,"Wuchiapingian",259.9,254.17,60,0,285,0,345,4,1474,"terrestrial","landsea",345,0.288702928870293
-138,"Ladinian",242,237,0,403,270,0,673,15,3978,"marine","landsea",673,0.138791503402763
-139,"Anisian",247.2,242,217,113,453,186,938,15,10549,"marine","landsea",969,0.199835017529388
-652,"Olenekian",251.2,247.2,90,97,326,209,629,9,8541,"marine","landsea",722,0.148896679727779
-653,"Induan",252.17,251.2,112,76,67,194,343,8,5658,"marine","landsea",449,0.0925964116312642
-715,"Changhsingian",254.17,252.17,59,410,313,211,942,14,12951,"marine","landsea",993,0.204784491647762
-716,"Wuchiapingian",259.9,254.17,621,0,422,0,1043,7,15979,"marine","landsea",1043,0.215095896061044
-138,"Ladinian",242,237,0,7,12,0,19,1,49,"tropics","latitude",19,0.0582822085889571
-139,"Anisian",247.2,242,5,3,36,2,45,0,121,"tropics","latitude",46,0.141104294478528
-652,"Olenekian",251.2,247.2,2,6,34,3,42,0,78,"tropics","latitude",45,0.138036809815951
-653,"Induan",252.17,251.2,5,0,35,4,40,0,120,"tropics","latitude",44,0.134969325153374
-715,"Changhsingian",254.17,252.17,1,7,44,3,53,2,99,"tropics","latitude",55,0.168711656441718
-716,"Wuchiapingian",259.9,254.17,10,0,107,0,117,2,294,"tropics","latitude",117,0.358895705521472
-138,"Ladinian",242,237,0,341,275,0,616,14,3273,"temperate","latitude",616,0.143289137008607
-139,"Anisian",247.2,242,190,98,409,151,826,13,8957,"temperate","latitude",848,0.197255175622238
-652,"Olenekian",251.2,247.2,74,76,270,175,519,9,7218,"temperate","latitude",595,0.138404280065131
-653,"Induan",252.17,251.2,89,69,55,162,287,4,4119,"temperate","latitude",375,0.0872295882763433
-715,"Changhsingian",254.17,252.17,62,400,340,169,945,16,12774,"temperate","latitude",971,0.225866480576878
-716,"Wuchiapingian",259.9,254.17,569,0,325,0,894,7,12676,"temperate","latitude",894,0.207955338450803
-138,"Ladinian",242,237,0,89,62,0,151,3,694,"cold","latitude",151,0.104715672676838
-139,"Anisian",247.2,242,55,36,206,34,325,5,1666,"cold","latitude",331,0.229542302357836
-652,"Olenekian",251.2,247.2,24,42,143,46,234,5,1586,"cold","latitude",255,0.176837725381415
-653,"Induan",252.17,251.2,48,9,54,40,129,6,1627,"cold","latitude",151,0.104715672676838
-715,"Changhsingian",254.17,252.17,3,25,49,46,83,3,161,"cold","latitude",123,0.0852981969486824
-716,"Wuchiapingian",259.9,254.17,71,0,360,0,431,7,3347,"cold","latitude",431,0.298890429958391
+interval_no,interval_name,max_ma,min_ma,X_Ft,X_bL,X_FL,X_bt,sampled_in_bin,implied_in_bin,n_occs,group,comparison,N,relN
+138,Ladinian,242,237,0,25,9,0,34,1,433,Low,Acid buffering capacity,34,0.072340426
+139,Anisian,247.2,242,16,3,27,9,53,1,714,Low,Acid buffering capacity,55,0.117021277
+652,Olenekian,251.2,247.2,3,2,3,9,15,2,154,Low,Acid buffering capacity,17,0.036170213
+653,Induan,252.17,251.2,4,9,4,7,22,1,151,Low,Acid buffering capacity,24,0.05106383
+715,Changhsingian,254.17,252.17,2,100,21,14,135,0,1925,Low,Acid buffering capacity,137,0.291489362
+716,Wuchiapingian,259.9,254.17,114,0,89,0,203,1,3237,Low,Acid buffering capacity,203,0.431914894
+138,Ladinian,242,237,0,217,115,0,332,5,1907,Medium,Acid buffering capacity,332,0.132007952
+139,Anisian,247.2,242,100,78,203,117,484,6,7237,Medium,Acid buffering capacity,498,0.198011928
+652,Olenekian,251.2,247.2,61,71,215,134,426,2,7404,Medium,Acid buffering capacity,481,0.191252485
+653,Induan,252.17,251.2,76,49,32,129,224,3,4989,Medium,Acid buffering capacity,286,0.113717694
+715,Changhsingian,254.17,252.17,39,151,133,139,429,4,6120,Medium,Acid buffering capacity,462,0.183697813
+716,Wuchiapingian,259.9,254.17,290,0,166,0,456,3,4406,Medium,Acid buffering capacity,456,0.181312127
+138,Ladinian,242,237,0,19,16,0,35,2,229,High,Acid buffering capacity,35,0.180412371
+139,Anisian,247.2,242,4,5,15,15,39,3,315,High,Acid buffering capacity,39,0.201030928
+652,Olenekian,251.2,247.2,6,2,12,14,30,1,212,High,Acid buffering capacity,34,0.175257732
+653,Induan,252.17,251.2,4,5,1,12,18,2,370,High,Acid buffering capacity,22,0.113402062
+715,Changhsingian,254.17,252.17,3,5,7,14,25,2,176,High,Acid buffering capacity,29,0.149484536
+716,Wuchiapingian,259.9,254.17,19,0,16,0,35,1,148,High,Acid buffering capacity,35,0.180412371
+138,Ladinian,242,237,0,23,88,0,111,8,257,Terrestrial,Terrestrial vs. Marine,111,0.092887029
+139,Anisian,247.2,242,15,24,223,8,267,11,833,Terrestrial,Terrestrial vs. Marine,270,0.225941423
+652,Olenekian,251.2,247.2,16,27,90,16,136,4,752,Terrestrial,Terrestrial vs. Marine,149,0.124686192
+653,Induan,252.17,251.2,16,2,40,27,66,4,196,Terrestrial,Terrestrial vs. Marine,85,0.071129707
+715,Changhsingian,254.17,252.17,4,35,171,25,217,5,465,Terrestrial,Terrestrial vs. Marine,235,0.19665272
+716,Wuchiapingian,259.9,254.17,60,0,285,0,345,4,1474,Terrestrial,Terrestrial vs. Marine,345,0.288702929
+138,Ladinian,242,237,0,403,270,0,673,15,3978,Marine,Terrestrial vs. Marine,673,0.138791503
+139,Anisian,247.2,242,217,113,453,186,938,15,10549,Marine,Terrestrial vs. Marine,969,0.199835018
+652,Olenekian,251.2,247.2,90,97,326,209,629,9,8541,Marine,Terrestrial vs. Marine,722,0.14889668
+653,Induan,252.17,251.2,112,76,67,194,343,8,5658,Marine,Terrestrial vs. Marine,449,0.092596412
+715,Changhsingian,254.17,252.17,59,410,313,211,942,14,12951,Marine,Terrestrial vs. Marine,993,0.204784492
+716,Wuchiapingian,259.9,254.17,621,0,422,0,1043,7,15979,Marine,Terrestrial vs. Marine,1043,0.215095896
+138,Ladinian,242,237,0,7,12,0,19,1,49,Tropical,Temperature (approximated by paleo latitude),19,0.058282209
+139,Anisian,247.2,242,5,3,36,2,45,0,121,Tropical,Temperature (approximated by paleo latitude),46,0.141104294
+652,Olenekian,251.2,247.2,2,6,34,3,42,0,78,Tropical,Temperature (approximated by paleo latitude),45,0.13803681
+653,Induan,252.17,251.2,5,0,35,4,40,0,120,Tropical,Temperature (approximated by paleo latitude),44,0.134969325
+715,Changhsingian,254.17,252.17,1,7,44,3,53,2,99,Tropical,Temperature (approximated by paleo latitude),55,0.168711656
+716,Wuchiapingian,259.9,254.17,10,0,107,0,117,2,294,Tropical,Temperature (approximated by paleo latitude),117,0.358895706
+138,Ladinian,242,237,0,341,275,0,616,14,3273,Temperate,Temperature (approximated by paleo latitude),616,0.143289137
+139,Anisian,247.2,242,190,98,409,151,826,13,8957,Temperate,Temperature (approximated by paleo latitude),848,0.197255176
+652,Olenekian,251.2,247.2,74,76,270,175,519,9,7218,Temperate,Temperature (approximated by paleo latitude),595,0.13840428
+653,Induan,252.17,251.2,89,69,55,162,287,4,4119,Temperate,Temperature (approximated by paleo latitude),375,0.087229588
+715,Changhsingian,254.17,252.17,62,400,340,169,945,16,12774,Temperate,Temperature (approximated by paleo latitude),971,0.225866481
+716,Wuchiapingian,259.9,254.17,569,0,325,0,894,7,12676,Temperate,Temperature (approximated by paleo latitude),894,0.207955338
+138,Ladinian,242,237,0,89,62,0,151,3,694,High latitude (cold) ,Temperature (approximated by paleo latitude),151,0.104715673
+139,Anisian,247.2,242,55,36,206,34,325,5,1666,High latitude (cold) ,Temperature (approximated by paleo latitude),331,0.229542302
+652,Olenekian,251.2,247.2,24,42,143,46,234,5,1586,High latitude (cold) ,Temperature (approximated by paleo latitude),255,0.176837725
+653,Induan,252.17,251.2,48,9,54,40,129,6,1627,High latitude (cold) ,Temperature (approximated by paleo latitude),151,0.104715673
+715,Changhsingian,254.17,252.17,3,25,49,46,83,3,161,High latitude (cold) ,Temperature (approximated by paleo latitude),123,0.085298197
+716,Wuchiapingian,259.9,254.17,71,0,360,0,431,7,3347,High latitude (cold) ,Temperature (approximated by paleo latitude),431,0.29889043
