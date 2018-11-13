@@ -54,7 +54,7 @@ shinyUI(navbarPage("Diversity and Extinction",
               textInput("pbdbURL2", "PBDB URL for group2 (optional):", 
                         placeholder = "https://paleobiodb.org/data1.2/occs/diversity.csv?datainfo&rowcount&base_name=dinosauria&count=genera&latmin=40&latmax=90", width = '100%')
             ),
-            tags$b("It will take a litle while to load, as this website's server queries the PBDB server..."),
+            tags$b("It will take a litle while to load as this website's server queries the PBDB server..."),
             p("If you continue to see an error message, double check that the link you pasted is for 'Diversity over time.'"),
             plotOutput("design_plot")
             #DT:: dataTableOutput("design_table")

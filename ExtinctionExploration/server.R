@@ -117,7 +117,7 @@ shinyServer(function(input, output, session) {
       
 
       #make the plot
-      (ggplot(selectivity_output, aes(x = max_ma, y = relN, color = group))
+      (ggplot(selectivity_output, aes(x = min_ma, y = relN, color = group))
         +geom_vline(xintercept = c(252.2), color = "gray70", size = 2)
         +geom_point()+geom_line()
         +ylab("Diversity (Standardized)")
@@ -152,11 +152,16 @@ shinyServer(function(input, output, session) {
       
       pbdb_data$plot <- pbdb_data$N
       if(input$pbdbURL2 != "") {pbdb_data$N <- pbdb_data$relN}
+      
+      xscale <- timescale$min_ma
+      xscale <- xscale[xscale >= min(pbdb_data$min_ma)-3]
+      xscale <- xscale[xscale < max(pbdb_data$min_ma)]
+      xscale <- rev(round(xscale,1))
      
      #make the plot
       (ggplot(pbdb_data, aes(x = max_ma, y = N, color = group))
         +geom_point()+geom_line()
-        +scale_x_reverse()
+        +scale_x_reverse( breaks = xscale)
         +ylab(yaxist)
         +xlab("Geologic Time (Ma)")
         +theme(legend.title=element_blank())
