@@ -45,13 +45,17 @@ shinyUI(navbarPage("Diversity and Extinction",
       tabPanel("Part3", 
         fluidPage(titlePanel("Design your own PBDB adventure!"),
           verticalLayout(
-            h6("This is the link to PBDB:"),
-            a(href="https://paleobiodb.org/classic/displayDownloadGenerator", "PBDB"),
-            h6("and this is more text explaining this part (which unfortunately doesn't work..."),
+            p("Now it's your turn! Explore the diversity of a group (or groups) of your choice. Go to the Paleobiology Database data downloader site:"),
+            a(href="https://paleobiodb.org/classic/displayDownloadGenerator", "Paleobiology Database", target="_blank"),
+            p("In the 'What do you want to download?' panel, select 'Diversity over time'. Then, select your chosen criteria in the lower drop-down options (e.g., 'Mammalia' and '(paleo) Latitude between 40 and 90'). When you are finished, copy and paste the link generated (above the 'Test' and 'Download' buttons) here:"),
             wellPanel(
-              textInput("pbdbURL", "Copy and paste PBDB url here:", 
-                        placeholder = "e.g., https://paleobiodb.org/data1.2/occs/diversity.csv?datainfo&rowcount&base_name=mammalia&count=genera", width = '100%')
+              textInput("pbdbURL1", "Copy and paste PBDB URL here ('group1'):", 
+                        value = "https://paleobiodb.org/data1.2/occs/diversity.csv?datainfo&rowcount&base_name=mammalia&count=genera&latmin=40&latmax=90", width = '100%'),
+              textInput("pbdbURL2", "PBDB URL for group2 (optional):", 
+                        placeholder = "https://paleobiodb.org/data1.2/occs/diversity.csv?datainfo&rowcount&base_name=dinosauria&count=genera&latmin=40&latmax=90", width = '100%')
             ),
+            tags$b("It will take a litle while to load, as this website's server queries the PBDB server..."),
+            p("If you continue to see an error message, double check that the link you pasted is for 'Diversity over time.'"),
             plotOutput("design_plot")
             #DT:: dataTableOutput("design_table")
         )))

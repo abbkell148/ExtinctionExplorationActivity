@@ -131,18 +131,35 @@ shinyServer(function(input, output, session) {
     
     output$design_plot <- renderPlot({
       #read the data
-      pbdb_data<-fread(input$pbdbURL,skip = 20 )
-      #pbdb_data<-fread("https://paleobiodb.org/data1.2/occs/diversity.csv?datainfo&rowcount&base_name=mammalia&count=genera",skip = 20 )
-    
+      pbdb_data1<-fread(input$pbdbURL1,skip = 20 )
       
-      #prep the data
-      pbdb_data$diversity <- pbdb_data$X_Ft + pbdb_data$X_bL + pbdb_data$X_FL + pbdb_data$X_bt
-      #make the plot
-      (ggplot(pbdb_data, aes(x = max_ma, y = diversity))
+      #pbdb_data1<-fread("https://paleobiodb.org/data1.2/occs/diversity.csv?datainfo&rowcount&base_name=mammalia&count=genera",skip = 20 )
+      #input <- list()
+      #input$pbdbURL2 <- "https://paleobiodb.org/data1.2/occs/diversity.csv?datainfo&rowcount&base_name=dinosauria&count=genera"
+      
+      pbdb_data1$group <- "group1"
+      if(input$pbdbURL2 != "") {pbdb_data2<-fread(input$pbdbURL2,skip = 20)}
+      if(input$pbdbURL2 != "") {pbdb_data2$group <- "group2"}
+      if(input$pbdbURL2 != "") {pbdb_data <- rbind(pbdb_data1, pbdb_data2)}  
+      
+      if(input$pbdbURL2 == "") {pbdb_data <- pbdb_data1}  
+      
+      pbdb_data$N <- pbdb_data$X_Ft + pbdb_data$X_bL + pbdb_data$X_FL + pbdb_data$X_bt  
+      pbdb_data$relN <- pbdb_data$N[pbdb_data$group == "group1"] / max(pbdb_data$N[pbdb_data$group == "group1"], na.rm=T)
+      if(input$pbdbURL2 != "") {pbdb_data$relN[pbdb_data$group == "group2"] <- pbdb_data$N[pbdb_data$group == "group2"] / max(pbdb_data$N[pbdb_data$group == "group2"], na.rm=T)}
+      
+      if(input$pbdbURL2 == "") {yaxist <- "total genera"} else {yaxist <- "standardized diversity"}
+      
+      pbdb_data$plot <- pbdb_data$N
+      if(input$pbdbURL2 != "") {pbdb_data$N <- pbdb_data$relN}
+     
+     #make the plot
+      (ggplot(pbdb_data, aes(x = max_ma, y = N, color = group))
         +geom_point()+geom_line()
         +scale_x_reverse()
-        +ylab("total genera\n(within group)")
+        +ylab(yaxist)
         +xlab("Geologic Time (Ma)")
+        +theme(legend.title=element_blank())
       )
     }) 
     
