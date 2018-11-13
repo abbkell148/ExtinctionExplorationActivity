@@ -137,16 +137,16 @@ shinyServer(function(input, output, session) {
       #input <- list()
       #input$pbdbURL2 <- "https://paleobiodb.org/data1.2/occs/diversity.csv?datainfo&rowcount&base_name=dinosauria&count=genera"
       
-      pbdb_data1$group <- "group1"
+      pbdb_data1$group <- input$group1n
       if(input$pbdbURL2 != "") {pbdb_data2<-fread(input$pbdbURL2,skip = 20)}
-      if(input$pbdbURL2 != "") {pbdb_data2$group <- "group2"}
+      if(input$pbdbURL2 != "") {pbdb_data2$group <- input$group2n}
       if(input$pbdbURL2 != "") {pbdb_data <- rbind(pbdb_data1, pbdb_data2)}  
       
       if(input$pbdbURL2 == "") {pbdb_data <- pbdb_data1}  
       
       pbdb_data$N <- pbdb_data$X_Ft + pbdb_data$X_bL + pbdb_data$X_FL + pbdb_data$X_bt  
-      pbdb_data$relN <- pbdb_data$N[pbdb_data$group == "group1"] / max(pbdb_data$N[pbdb_data$group == "group1"], na.rm=T)
-      if(input$pbdbURL2 != "") {pbdb_data$relN[pbdb_data$group == "group2"] <- pbdb_data$N[pbdb_data$group == "group2"] / max(pbdb_data$N[pbdb_data$group == "group2"], na.rm=T)}
+      pbdb_data$relN <- pbdb_data$N[pbdb_data$group == input$group1n] / max(pbdb_data$N[pbdb_data$group == input$group1n], na.rm=T)
+      if(input$pbdbURL2 != "") {pbdb_data$relN[pbdb_data$group == input$group2n] <- pbdb_data$N[pbdb_data$group == input$group2n] / max(pbdb_data$N[pbdb_data$group == input$group2n], na.rm=T)}
       
       if(input$pbdbURL2 == "") {yaxist <- "total genera"} else {yaxist <- "standardized diversity"}
       
