@@ -28,7 +28,7 @@ shinyServer(function(input, output, session) {
       yscale = max(diversity_output$relN, na.rm=T)/12
     
       #make the plot
-      (ggplot(diversity_output, aes(x = min_ma, y = relN, color = group))
+      (ggplot(diversity_output, aes(x = mid_ma, y = relN, color = group))
         +geom_vline(xintercept = c(252), color = "gray70", size = 2)
         +geom_vline(xintercept = c(444, 65, 201), color = "gray90", size = 1)
         +annotate("rect", xmax=372.2, xmin = 359, ymin=-Inf, ymax= Inf, fill ="gray90")
@@ -54,12 +54,12 @@ shinyServer(function(input, output, session) {
       yscale = max(diversity_output$N, na.rm=T)/12
       
       #make the plot
-      (ggplot(diversity_output, aes(x = min_ma, y = N, color = group))
+      (ggplot(diversity_output, aes(x = mid_ma, y = N, color = group))
         +geom_vline(xintercept = c(252), color = "gray70", size = 2)
         +geom_vline(xintercept = c(444, 65, 201), color = "gray90", size = 1)
         +annotate("rect", xmax=372.2, xmin = 359, ymin=-Inf, ymax= Inf, fill ="gray90")
         +geom_point()+geom_line()
-        +ylab("Diversity: Genera in Bin")
+        +ylab("Diversity: Total Genera")
         +xlab("Geologic Time (Ma)")
         +theme(legend.position="bottom", axis.text.x = element_text(size=10))+ labs(color="")
         
@@ -71,7 +71,7 @@ shinyServer(function(input, output, session) {
         +annotate("text", x=timescale$mid_ma,y=(yminv - 1*yscale),label=timescale$period,size=4)
         )
     })
-    
+ 
     output$ext_org_plot <- renderPlot({
 
       diversity_output <- diversityDF[diversityDF$group %in% input$group[1],]
@@ -91,9 +91,9 @@ shinyServer(function(input, output, session) {
         +geom_segment(aes(x=560, y = -yscale/3, xend=560, yend=-3*yscale), color = "red", size =1, arrow = arrow(ends = "last"))
         +annotate(geom="text", x=560, y = 3.5*yscale, label = "Origination", color = "green")
         +annotate(geom="text", x=560, y = -3.5*yscale, label = "Extinction", color = "red")
-        +geom_line(aes(x = min_ma, y= -bL/(max_ma-min_ma)), color = "red")
-        +geom_line(aes(x = min_ma, y = Ft/(max_ma-min_ma)), color = "green")
-        +geom_point(aes(x = min_ma, y = (yminv - yscale), fill = (Ft-bL)), shape = 22, color = "white", size = 3, alpha = .8)
+        +geom_line(aes(x = mid_ma, y= -bL/(max_ma-min_ma)), color = "red")
+        +geom_line(aes(x = mid_ma, y = Ft/(max_ma-min_ma)), color = "green")
+        +geom_point(aes(x = mid_ma, y = (yminv - yscale), fill = (Ft-bL)), shape = 22, color = "white", size = 3, alpha = .8)
         +scale_fill_gradient2(low = "red", high = "green", name = "Net change", na.value="white")
         +ggtitle(title)
         +ylab("Extinction and Origination Rate (Genera/Ma)")
@@ -117,7 +117,7 @@ shinyServer(function(input, output, session) {
       
 
       #make the plot
-      (ggplot(selectivity_output, aes(x = min_ma, y = relN, color = group))
+      (ggplot(selectivity_output, aes(x = max_ma, y = relN, color = group))
         +geom_vline(xintercept = c(252.2), color = "gray70", size = 2)
         +geom_point()+geom_line()
         +ylab("Diversity (Standardized)")

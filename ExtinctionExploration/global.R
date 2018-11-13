@@ -7,7 +7,10 @@ library(cowplot)
 #setwd("/Users/abigailkelly/Desktop/Teaching\ Geoscience/THEGREATDYING/ExtinctionExplorationApp/ExtinctionExploration")
 
  diversityDF <- read.csv("./data/diversity_data.csv")
+ diversityDF$mid_ma <- (diversityDF$max_ma + diversityDF$min_ma)/2
  selectivityDF <- read.csv("./data/selectivity.csv")
+ selectivityDF$mid_ma <- (selectivityDF$max_ma + selectivityDF$min_ma)/2
+ 
  
 # #group names for checkbox labels
  group_names <- c('Animals (all)','Ammonites',  'Arthropods', 'Arthropods: insects', 'Arthropods: trilobites', 'Brachiopods', 'Bryozoans', 'Corals (all)', 'Corals: rugose', 'Corals: scleractinian', 'Corals: tabulate', 'Echinoids (all)', 'Echinoids: crinoids', 'Echinoids: sea stars', 'Echinoids: sea urchins', 'Fish: bony', 'Fish: cartilaginous', 'Molluscs (all)', 'Molluscs: bivalves', 'Molluscs: gastropods')
