@@ -128,7 +128,7 @@ shinyServer(function(input, output, session) {
         +scale_x_reverse(breaks = (round(rev(unique(selectivity_output$max_ma)),1)))        
       )
     }) 
-    
+  
     output$design_plot <- renderPlot({
       #read the data
       pbdb_data1<-fread(input$pbdbURL1,skip = 20 )
