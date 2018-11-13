@@ -130,6 +130,10 @@ shinyServer(function(input, output, session) {
     }) 
   
     output$design_plot <- renderPlot({
+      
+      input$makeplots
+      isolate({
+      
       #read the data
       pbdb_data1<-fread(input$pbdbURL1,skip = 20 )
       
@@ -166,6 +170,7 @@ shinyServer(function(input, output, session) {
         +xlab("Geologic Time (Ma)")
         +theme(legend.title=element_blank())
       )
+    })
     }) 
     
     #output$design_table <- DT::renderDataTable({ fread(input$pbdbURL,skip = 20 ) })

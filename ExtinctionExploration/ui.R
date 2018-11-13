@@ -54,7 +54,7 @@ shinyUI(navbarPage("Diversity and Extinction",
                         value = "https://paleobiodb.org/data1.2/occs/diversity.csv?datainfo&rowcount&base_name=mammalia&count=genera&latmin=40&latmax=90", width = '100%'),
               textInput("pbdbURL2", "PBDB URL for group2 (optional):", 
                         placeholder = "https://paleobiodb.org/data1.2/occs/diversity.csv?datainfo&rowcount&base_name=dinosauria&count=genera&latmin=40&latmax=90", width = '100%'),
-              submitButton("Make the Plot!")
+              actionButton("makeplots", "Make the Plot!")
             ), 
             column(4, 
                    textInput("group1n", "Group1 Name:", 
